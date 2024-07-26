@@ -12,8 +12,12 @@ app.get("/", (request, response, next) => {
     response.json({
         message: "Hello world!"
     });
-
 });
+
+
+const ContactRouter = require("./controllers/ContactRouter");
+app.use("/contacts", ContactRouter);
+
 
 // Return a bunch of useful details from the database connection
 // Dig into each property here:
@@ -31,6 +35,7 @@ app.get("/databaseHealth", (request, response) => {
         dbHost: databaseHost   
     })
 });
+
 
 app.use((error, request, response, next) => {
 
