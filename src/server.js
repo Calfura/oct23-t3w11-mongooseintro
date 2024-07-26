@@ -6,6 +6,7 @@ const express = require("express");
 // Make an instance of an Express server to start configuring it
 const app = express();
 
+app.use(express.json());
 
 app.get("/", (request, response, next) => {
 
@@ -15,8 +16,12 @@ app.get("/", (request, response, next) => {
 });
 
 
+
+
 const ContactRouter = require("./controllers/ContactRouter");
 app.use("/contacts", ContactRouter);
+
+
 
 
 // Return a bunch of useful details from the database connection
